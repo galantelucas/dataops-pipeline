@@ -1,0 +1,11 @@
+[
+    {
+      "conn_id": "postgres_conn",
+      "conn_type": "postgres",
+      "host": "postgres_lake",
+      "schema": "postgres",
+      "login": "postgres",
+      "password": "postgres",
+      "port": 5432
+    }
+  ]

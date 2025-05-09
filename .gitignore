@@ -1,0 +1,9 @@
+logs/
+storage/
+# Ignorar todos os arquivos .csv
+*.csv
+
+# Você pode manter outras regras também
+__pycache__/
+*.pyc
+.env
