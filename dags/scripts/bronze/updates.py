@@ -6,6 +6,8 @@ import os
 from bs4 import BeautifulSoup
 import sys
 
+from tools.pipeline import Pipeline
+
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 from tools.pipeline import Pipeline
@@ -32,7 +34,7 @@ class CheckUpdates:
         except Exception as e:
             raise Exception(f"Erro ao localizar atualização: {e}")
 
-    def load_db_config(self, json_path='dags/tools/connections.json'):
+    def load_db_config(self, json_path=Pipeline.JSON_PATH):
         """Carrega as configurações de conexão do JSON."""
         try:
             with open(json_path, 'r') as file:

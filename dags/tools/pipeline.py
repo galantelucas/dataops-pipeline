@@ -7,7 +7,7 @@ class Pipeline(object):
     BASE_URL = 'https://balanca.economia.gov.br/balanca/bd'
 
     # Pastas de download dos arquivos
-    STORAGE = '/opt/airflow/storage/'
+    STORAGE = '/opt/airflow/storage/bronze/'
     STORAGE_IMP = STORAGE + 'COMEX_IMPORTACAO'
     STORAGE_EXP = STORAGE + 'COMEX_EXPORTACAO'
     STORAGE_AUX = STORAGE + 'COMEX_AUXILIARES'
@@ -31,3 +31,21 @@ class Pipeline(object):
         {"NAME": "NCM_ISIC",
             "URL": "https://balanca.economia.gov.br/balanca/bd/tabelas/NCM_ISIC.csv"}
     ]
+
+    # Scripts de criaçao das tabelas
+    SQL_FILE_PATH = '/opt/airflow/dags/tools/table_scripts/tabelas_geradas.sql'
+
+    # Conexao ao banco de dados
+    JSON_PATH= 'dags/tools/connections.json'
+
+    TABLE_D_BLOCOS = 'silver.D_BLOCOS'
+    TABLE_D_NCM = 'silver.D_NCM'
+    TABLE_D_NCM_ISIC = 'silver.D_NCM_ISIC'
+    TABLE_D_NCM_SH = 'silver.D_NCM_SH'
+    TABLE_D_PAIS = 'silver.D_PAIS'
+    TABLE_D_UF = 'silver.D_UF'
+    TABLE_D_UNIDADE = 'silver.D_UNIDADE'
+    TABLE_D_URF = 'silver.D_URF'
+    TABLE_D_VIA = 'silver.D_VIA'
+    TABLE_F_EXPORTACOES_ESTADOS = 'silver.F_EXPORTACOES_ESTADOS'
+    TABLE_F_IMPORTACOES_ESTADOS = 'silver.F_IMPORTACOES_ESTADOS'
