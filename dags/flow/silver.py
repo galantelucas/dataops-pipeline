@@ -24,8 +24,8 @@ def importacoes():
 @task
 def auxiliares():
     """Realiza download das tabelas auxiliares."""
-    auxiliares = AuxLoader()
-    auxiliares.run()
+    aux_loader = AuxLoader()
+    aux_loader.run(replace_table=True)
     logging.info("Tabelas auxiliares inseridas com sucesso.")
 
 
@@ -36,6 +36,6 @@ def camada_silver():
         importacao = importacoes()
         auxiliar = auxiliares()
 
-        exportacao >> importacao >> auxiliar
+        auxiliar >> exportacao  >> importacao
 
     return silver_group

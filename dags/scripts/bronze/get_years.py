@@ -28,7 +28,7 @@ class GetYears:
             if 'EXP_' in href and texto.isdigit():
                 anos.append(int(texto))
 
-        anos = sorted(set(anos))[-2:]
+        anos = sorted(set(anos))[-1:]
         print(f"Anos disponíveis: {anos}")
 
         if db_last_update is None:

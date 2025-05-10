@@ -50,12 +50,10 @@ class DatabaseInitializer:
         with open(sql_file_path, 'r') as f:
             sql_content = f.read()
 
-        # Adiciona IF NOT EXISTS dinamicamente
         sql_content = re.sub(
-            r'CREATE TABLE\s+(\w+)\.(\w+)',
-            'CREATE TABLE IF NOT EXISTS "\\1"."\\2"',
-            sql_content,
-            flags=re.IGNORECASE
+            r'(?i)\bcreate\s+table\s+(\w+)\.(\w+)',
+            r'CREATE TABLE IF NOT EXISTS \1.\2',
+            sql_content
         )
 
         print("Executando script SQL com IF NOT EXISTS...")
